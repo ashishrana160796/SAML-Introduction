@@ -21,3 +21,13 @@ Problems with such configuration as follow :
 * A list of user has to maintained with redundant id's if multiple IDs are being used for different SAS service in place.
 * Multiple services with multiple IDs are needed to be maintained & updated list is needed. All the basic database problems will come in this like removal of user if a service gets removed & user is part of that service but user is still part of organization.
 
+### SAML Advantages (_Except obvious SSO_)
+
+* Users pre-filled from from organization profile like with LDAP and active directory as directory service provider.
+* Only one source of true active users. No consistency problem as such. Easy managing of access.
+
+
+### Working
+
+In SAML, __principle__(_user_) wants to access resources from Service Provider(_SP_) and _SP_ uses _assertions_ in the form of let's say tokens from __Identity Provider__(_IdP_).
+__IdP__ uses some method to like username or password to authenciate the user & establish session.
