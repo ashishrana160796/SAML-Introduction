@@ -10,4 +10,14 @@ a profile for use-case consitute a open standard for exchanging information know
 
 2. Active code sits on device : In this case a coded device is to make active API calls to SPs for exchange of information if session exists. This is called _"Active"_ profile. In this case like above standard way exist for communicating between IDP and client. But, here different ways of communicating between client & SPs exists like for making API calls either in the form of cookies, JSON, http requests. 
 
-Other examples are protocols like OAuth( _gives information limited access to an HTTP service without providing password_ ), JWT( _claims encoded as JSON objects & signed as _ ) etc.
+Other protocols for authorization & authenticiation are OAuth( _gives information limited access to an HTTP service without providing password_ ), JWT( _claims encoded as JSON objects & signed as JWS plus encrypted with JWE_ ) etc.
+
+### Problems while not using SAML 
+
+Consider a use-case where CRM server is there with different multiple customer services and different users. Different users have different permissions that provide different level of access in CRM server.
+Problems with such configuration as follow :
+
+* If user is removed or moved to other access level it has to updated everywhere like in CRM server's access list etc.
+* A list of user has to maintained with redundant id's if multiple IDs are being used for different SAS service in place.
+* Multiple services with multiple IDs are needed to be maintained & updated list is needed. All the basic database problems will come in this like removal of user if a service gets removed & user is part of that service but user is still part of organization.
+
