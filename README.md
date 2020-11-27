@@ -6,11 +6,11 @@ a profile for use-case consitute a open standard for exchanging information know
 
 ### Use Cases 
 
-1. A web-browser based SSO : Here, web-browser is being re-directed to w/o any information depending URL entered. This is called _"Passive"_ profile meaning client is passively engaged with SPs and IDPs.
+1. A web-browser based SSO : Here, web-browser is being re-directed to w/o any information depending URL entered. This is called _"Passive"_ profile meaning client is passively engaged with Serive Providers (SPs) and Identity Providers (IdPs). 
 
 2. Active code sits on device : In this case a coded device is to make active API calls to SPs for exchange of information if session exists. This is called _"Active"_ profile. In this case like above standard way exist for communicating between IDP and client. But, here different ways of communicating between client & SPs exists like for making API calls either in the form of cookies, JSON, http requests. 
 
-Other protocols for authorization & authenticiation are OAuth( _gives information limited access to an HTTP service without providing password_ ), JWT( _claims encoded as JSON objects & signed as JWS plus encrypted with JWE_ ) etc.
+Other protocols for authorization & authenticiation are OAuth( _gives information limited access to an HTTP service without providing password_ ), JWT( _claims encoded as JSON objects & signed as JSON Web Signature (JWS) plus encrypted with JSON Web Envryption (JWE)_) etc.
 
 ### Problems while not using SAML 
 
@@ -23,13 +23,13 @@ Problems with such configuration as follow :
 
 ### SAML Advantages (_Except obvious SSO_)
 
-* Users pre-filled from from organization profile like with LDAP and active directory as directory service provider.
+* Users are pre-filled from organization profile like with Lightweight Directory Access Protocol (LDAP) and active directory as directory service provider.
 * Only one source of true active users. No consistency problem as such. Easy managing of access.
 
 ### Working
 
-In SAML, __principle__(_user_) wants to access resources from Service Provider(_SP_) and _SP_ uses _assertions_ in the form of let's say tokens from __Identity Provider__(_IdP_).
-__IdP__ uses some method to like username or password to authenciate the user & establish session. Digital signatures are used to specify the connection's authenticiation.
+In SAML, __principle__(_user_) wants to access resources from _SP_ and _SP_ uses _assertions_ in the form of let's say tokens from _IdP_.
+_IdP_ uses some method to like username or password to authenticate the user & establish session. Digital signatures are used to specify the connection's authenticiation.
 
 SAML core's means syntax and semantics of assertions for transmission & request. SAML's core define what is being transmitted not how to transmit and request. Bindings of SAML determine how to map requests & responses onto standard messaging & communication protocol. Examples of such bindings are SOAP and ReST. In ReST url of very large length can be problematic if because each vendor limits url length but otherwise this is better protocol.  
 
@@ -45,14 +45,14 @@ SAML uses HTTP communication protocol as its basis.
 
 ### SOAP vs ReST
 
-ReST combined JSON provides great functionality advantage. ReST is faster with less bandwidth. Another advantage of SOAP is that it offers built-in retry logic to compensate for failed communications, not present in ReST. ReST accesses data whereas SOAP works on with applicaton logic.
+ReST combined with JSON provides great functionality advantage. ReST is faster with less bandwidth. An advantage of SOAP is that it offers built-in retry logic to compensate for failed communications, not present in ReST. ReST accesses data whereas SOAP works on with applicaton logic.
 
 
 ### Detailed Study with Use Case
 
 #### Assertions 
 
-These are interpreted in the following way. Assertion A was issued at time t by issuer R regarding subject S provided conditions C are valid.
+These are interpreted in the following way. Assertion __A__ was issued at time __t__ by issuer __R__ regarding subject __S__ provided conditions __C__ are valid.
 Assertions contains authorization information, attribute information (_name value pair_) & authenticiation information. 
 
 #### Protocols
@@ -86,9 +86,7 @@ A SAML profile describes in detail how SAML assertions, protocols, and bindings 
 
 If again the target source is requested with base url being same, user will be directly able to access the service as connection exists between them already.
 
----
-
-#### References 
+### References 
 * https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language
 * https://github.com/jch/saml/blob/master/shibboleth-administration.md
 * https://stackify.com/soap-vs-rest/
